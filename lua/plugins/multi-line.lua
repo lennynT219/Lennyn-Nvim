@@ -1,5 +1,3 @@
--- This file contains the configuration for the vim-multiple-cursors plugin in Neovim.
-
 return {
   {
     -- Plugin: vim-multiple-cursors

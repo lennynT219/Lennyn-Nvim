@@ -1,5 +1,3 @@
--- This file contains the configuration for setting up the lazy.nvim plugin manager in Neovim.
-
 -- Define the path to the lazy.nvim plugin
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -19,12 +17,34 @@ require("lazy").setup({
     -- Add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- Import any extra modules here
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- Editor plugins
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
+    { import = "lazyvim.plugins.extras.editor.snacks_explorer" },
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
+
+    -- Formatting plugins
+    -- { import = "lazyvim.plugins.extras.formatting.biome" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+
+    -- Linting plugins
+    -- { import = "lazyvim.plugins.extras.linting.eslint" },
+
+    -- Language support plugins
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- { import = "lazyvim.plugins.extras.lang.java" },
+
+    -- Coding plugins
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
+
+    -- Utility plugins
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    { import = "lazyvim.plugins.extras.dap.core" },
+
+    -- AI plugins
+    -- { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
 
     -- Import/override with your plugins
     { import = "plugins" },

@@ -1,9 +1,6 @@
--- This file contains custom key mappings for Neovim.
-
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
 -- Position cursor at the middle of the screen after scrolling half page
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half a page and center the cursor
 vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half a page and center the cursor
@@ -11,8 +8,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half a page and center the 
 -- Map Ctrl+b in insert mode to delete to the end of the word without leaving insert mode
 vim.keymap.set("i", "<C-b>", "<C-o>de")
 
--- Map Ctrl+c to escape from other modes
-vim.keymap.set({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]])
+-- Screen Keys
+vim.keymap.set({ "n" }, "<leader>uk", "<cmd>Screenkey<CR>")
 
 ----- OBSIDIAN -----
 vim.keymap.set(
@@ -29,35 +26,20 @@ vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Crear Nueva 
 vim.keymap.set("n", "<leader>of", "<cmd>ObsidianSearch<CR>", { desc = "Buscar en Obsidian" })
 vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Cambio Rápido" })
 
-----OIL----
--- Me permite abrir el directorio padre del archivo actual
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", {
-  desc = "Open parent directory",
-})
+----- OIL -----
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Eliminar todos los buffers excepto el actual
 vim.keymap.set("n", "<leader>bq", '<Esc>:%bdelete|edit #|normal`"<Return>', {
-  desc = "Eliminar los demás buffers excepto el actual",
+  desc = "Eliminar otros buffers excepto el actual",
 })
 
 -- Keymaps para formatear el código
-vim.api.nvim_set_keymap("n", "+", ":lua vim.lsp.buf.format({async = true})<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "+", ":lua vim.lsp.buf.format({async = true})<CR>", { noremap = true, silent = true })
 
--- Disable key mappings in insert mode
-vim.api.nvim_set_keymap("i", "<A-j>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<A-k>", "<Nop>", { noremap = true, silent = true })
-
--- Disable key mappings in normal mode
-vim.api.nvim_set_keymap("n", "<A-j>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-k>", "<Nop>", { noremap = true, silent = true })
-
--- Disable key mappings in visual block mode
-vim.api.nvim_set_keymap("x", "<A-j>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "<A-k>", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "J", "<Nop>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("x", "K", "<Nop>", { noremap = true, silent = true })
-
+--Entrar en modo visual de bloque
 vim.api.nvim_set_keymap("n", "<C-b>", "<C-v>", { noremap = true, silent = true })
+
 -- Redefine Ctrl+s to save with the custom function
 vim.api.nvim_set_keymap("n", "<C-s>", ":lua SaveFile()<CR>", { noremap = true, silent = true })
 
@@ -65,7 +47,7 @@ vim.api.nvim_set_keymap("n", "<C-s>", ":lua SaveFile()<CR>", { noremap = true, s
 function SaveFile()
   -- Check if a buffer with a file is open
   if vim.fn.empty(vim.fn.expand("%:t")) == 1 then
-    vim.notify("No file to save", vim.log.levels.WARN)
+    vim.notify("Archivo no guardado", vim.log.levels.WARN)
     return
   end
 
@@ -75,13 +57,12 @@ function SaveFile()
   end)
 
   if success then
-    vim.notify(filename .. " Saved!") -- Show only the custom message if successful
+    vim.notify(filename .. " Guardado!") -- Show only the custom message if successful
   else
     vim.notify("Error: " .. err, vim.log.levels.ERROR) -- Show the error message if it fails
   end
 end
 
-vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insertar Plantilla de Obsidian" })
 -- Abrir el menú de opciones con Ctrl+t
 vim.keymap.set("n", "<leader>m", function()
   require("menu").open("default")

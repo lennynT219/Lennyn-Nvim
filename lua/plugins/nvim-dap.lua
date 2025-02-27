@@ -1,17 +1,30 @@
+-- This file contains the configuration for the nvim-dap plugin in Neovim.
+
 return {
   {
+    -- Plugin: nvim-dap
+    -- URL: https://github.com/mfussenegger/nvim-dap
+    -- Description: Debug Adapter Protocol client implementation for Neovim.
     "mfussenegger/nvim-dap",
     recommended = true, -- Recommended plugin
     desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
     dependencies = {
+      -- Plugin: nvim-dap-ui
+      -- URL: https://github.com/rcarriga/nvim-dap-ui
+      -- Description: A UI for nvim-dap.
       "rcarriga/nvim-dap-ui",
 
+      -- Plugin: nvim-dap-virtual-text
+      -- URL: https://github.com/theHamsta/nvim-dap-virtual-text
+      -- Description: Virtual text for the debugger.
       {
         "theHamsta/nvim-dap-virtual-text",
+        opts = {}, -- Default options
       },
     },
 
+    -- Keybindings for nvim-dap
     keys = {
       { "<leader>d", "", desc = "+debug", mode = { "n", "v" } }, -- Group for debug commands
       {
@@ -133,17 +146,27 @@ return {
         end,
         desc = "Widgets",
       },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Toggle UI",
+      },
     },
 
     config = function()
       local dap = require("dap")
 
+      -- Load mason-nvim-dap if available
       if LazyVim.has("mason-nvim-dap.nvim") then
         require("mason-nvim-dap").setup(LazyVim.opts("mason-nvim-dap.nvim"))
       end
 
+      -- Set highlight for DapStoppedLine
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
+      -- Define signs for DAP
       for name, sign in pairs(LazyVim.config.icons.dap) do
         sign = type(sign) == "table" and sign or { sign }
         vim.fn.sign_define(
@@ -152,22 +175,26 @@ return {
         )
       end
 
+      -- Setup DAP configuration using VsCode launch.json file
       local vscode = require("dap.ext.vscode")
       local json = require("plenary.json")
       vscode.json_decode = function(str)
         return vim.json.decode(json.json_strip_comments(str))
       end
 
+      -- Load launch configurations from .vscode/launch.json if it exists
       if vim.fn.filereadable(".vscode/launch.json") then
         vscode.load_launchjs()
       end
 
+      -- Function to load environment variables
       local function load_env_variables()
         local variables = {}
         for k, v in pairs(vim.fn.environ()) do
           variables[k] = v
         end
 
+        -- Load variables from .env file manually
         local env_file_path = vim.fn.getcwd() .. "/.env"
         local env_file = io.open(env_file_path, "r")
         if env_file then
@@ -183,6 +210,7 @@ return {
         return variables
       end
 
+      -- Add the env property to each existing Go configuration
       for _, config in pairs(dap.configurations.go or {}) do
         config.env = load_env_variables
       end

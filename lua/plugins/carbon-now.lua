@@ -24,5 +24,5 @@ return {
       },
     },
   },
-  vim.keymap.set("v", "<leader>cn", ":CarbonNow<CR>", { silent = true }),
+  vim.keymap.set("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Screenshot", silent = true }),
 }

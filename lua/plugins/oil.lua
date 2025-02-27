@@ -1,4 +1,3 @@
-local detail = false
 return {
   "stevearc/oil.nvim",
   opts = {
