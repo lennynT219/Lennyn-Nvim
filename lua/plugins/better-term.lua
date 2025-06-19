@@ -1,7 +1,7 @@
 return {
-  "CRAG666/betterTerm.nvim",
-  opts = {
-    position = "bot",
-    size = 15,
-  },
+  -- "CRAG666/betterTerm.nvim",
+  -- opts = {
+  --   position = "bot",
+  --   size = 15,
+  -- },
 }

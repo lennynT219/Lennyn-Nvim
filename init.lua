@@ -1,6 +1,6 @@
 require("config.lazy")
 
-vim.opt.shell = "pwsh"
-vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-vim.opt.shellquote = ""
-vim.opt.shellxquote = ""
+-- vim.o.shell = "pwsh"
+-- vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+-- vim.o.shellquote = ""
+-- vim.o.shellxquote = ""
