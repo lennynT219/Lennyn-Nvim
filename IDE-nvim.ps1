@@ -1,6 +1,7 @@
 # Variables
 $currentUser = (Get-CimInstance Win32_ComputerSystem).UserName.Split('\')[-1]
 $profilePath = "C:\Users\$currentUser\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+$appDataPath = "C:\Users\$currentUser\AppData\Local"
 
 # Crear el archivo de configuracion de PowerShell
 if (!(Test-Path -Path $profilePath))
@@ -58,6 +59,6 @@ choco install ripgrep -y
 choco install neovim -y
 
 # Configurar Nvim
-git clone https://github.com/lennynT219/Lennyn-Nvim.git $env:LOCALAPPDATA\nvim
-# Remove-Item -Path $env:LOCALAPPDATA\nvim\.git -Recurse -Force
-Remove-Item -Path $env:LOCALAPPDATA\nvim\IDE-nvim.ps1 -Recurse -Force
+git clone https://github.com/lennynT219/Lennyn-Nvim.git $appDataPath\nvim
+# Remove-Item -Path $appDataPath\nvim\.git -Recurse -Force
+Remove-Item -Path $appDataPath\nvim\IDE-nvim.ps1 -Recurse -Force
