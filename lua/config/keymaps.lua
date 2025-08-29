@@ -67,3 +67,17 @@ end
 vim.keymap.set("n", "<leader>m", function()
   require("menu").open("default")
 end, { desc = "Abrir el menú de opciones" })
+
+-- Alternar entre diccionarios
+
+vim.api.nvim_create_user_command("SpellToggle", function()
+  if vim.opt.spelllang:get()[1] == "en" then
+    vim.opt.spelllang = { "es" }
+  else
+    vim.opt.spelllang = { "en" }
+  end
+end, {})
+
+vim.api.nvim_create_user_command("SpellAll", function()
+  vim.opt.spelllang = { "en", "es" }
+end, {})

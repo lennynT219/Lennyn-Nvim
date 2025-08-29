@@ -1,3 +1,7 @@
+--Spell cheking
+vim.opt.spell = true
+vim.opt.spelllang = { "en", "es" }
+
 -- Define the path to the lazy.nvim plugin
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
