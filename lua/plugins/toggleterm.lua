@@ -4,7 +4,7 @@ return {
     version = "*",
     opts = {
       open_mapping = [[<A-t>]],
-      shell = "pwsh",
+      -- shell = "pwsh",
     },
   },
 }

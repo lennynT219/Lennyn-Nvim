@@ -20,7 +20,7 @@ return {
       workspaces = {
         {
           name = "LTBRAIN",
-          path = "C:/Users/lenny/Documents/Lennyn/BRAIN",
+          path = "/home/lennynt02/Documentos/Brain",
         },
       },
 
