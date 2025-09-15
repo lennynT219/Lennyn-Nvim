@@ -81,3 +81,5 @@ end, {})
 vim.api.nvim_create_user_command("SpellAll", function()
   vim.opt.spelllang = { "en", "es" }
 end, {})
+
+-- SQL
