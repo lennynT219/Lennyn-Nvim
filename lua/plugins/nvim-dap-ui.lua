@@ -5,16 +5,16 @@ return {
     config = function()
       local dap, dapui = require("dap"), require("dapui")
       dapui.setup({
-        layouts = {
-          {
-            elements = {
-              { id = "repl", size = 0.2 },
-              { id = "console", size = 0.8 },
-            },
-            position = "bottom",
-            size = 10, -- Ajusta el tamaño del panel inferior si es necesario
-          },
-        },
+        -- layouts = {
+        --   {
+        --     elements = {
+        --       { id = "repl", size = 0.2 },
+        --       { id = "console", size = 0.8 },
+        --     },
+        --     position = "bottom",
+        --     size = 10, -- Ajusta el tamaño del panel inferior si es necesario
+        --   },
+        -- },
         controls = {
           enabled = true,
         },
