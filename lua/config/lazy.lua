@@ -40,7 +40,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.java" },
     { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.omnisharp" },
+    { import = "lazyvim.plugins.extras.lang.dotnet" },
 
     -- Coding plugins
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
