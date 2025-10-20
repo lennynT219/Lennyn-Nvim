@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     event = "BufReadPre", -- Load the plugin before reading a buffer
     opts = {
       highlighters = {
