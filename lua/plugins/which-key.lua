@@ -19,7 +19,7 @@ return {
       { "<leader>R", group = "Rest", icon = { icon = "  ", color = "orange" } },
       { "<leader>s", group = "Search", icon = { icon = "󱁴  ", color = "blue" } },
       { "<leader>u", group = "UI", icon = { icon = "󱥇  ", color = "green" } },
-      { "<leader>w", group = "Windows", icon = { icon = "  ", color = "purple" } },
+      -- { "<leader>w", group = "Windows", icon = { icon = "  ", color = "purple" } },
       { "<leader>x", group = "Quickfix", icon = { icon = "󰙅  ", color = "grey" } },
       { "<leader><Tab>", group = "Tabs", icon = { icon = "󰓩  ", color = "red" } },
     })

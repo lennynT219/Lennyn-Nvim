@@ -7,7 +7,10 @@ return {
     -- Description: A Neovim plugin for integrating with Obsidian, a powerful knowledge base that works on top of a local folder of plain text Markdown files.
     "epwalsh/obsidian.nvim",
     version = "*", -- Use the latest release instead of the latest commit (recommended)
-
+    event = {
+      "BufReadPre " .. vim.fn.expand("~") .. "/Documentos/Brain/**.md",
+      "BufNewFile " .. vim.fn.expand("~") .. "/Documentos/Brain/**.md",
+    },
     dependencies = {
       -- Dependency: plenary.nvim
       -- URL: https://github.com/nvim-lua/plenary.nvim

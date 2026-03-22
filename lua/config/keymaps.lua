@@ -7,6 +7,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half a page and center the 
 -- Map Ctrl+b in insert mode to delete to the end of the word without leaving insert mode
 vim.keymap.set("i", "<C-b>", "<C-o>de")
 
+vim.keymap.set({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]])
+
 -- Screen Keys
 vim.keymap.set({ "n" }, "<leader>uk", "<cmd>Screenkey<CR>")
 
@@ -47,3 +49,16 @@ wk.add({
     icon = { icon = "󰹯  ", color = "azure" },
   },
 })
+
+----- Navegación -----
+-- Esto te permitirá moverte entre paneles de código divididos usando CTRL + h/j/k/l
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Ir al panel izquierdo", remap = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Ir al panel inferior", remap = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Ir al panel superior", remap = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Ir al panel derecho", remap = true })
+
+-- Ajustar tamaño de los paneles usando CTRL + flechas (opcional, pero muy útil)
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Aumentar altura del panel" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Disminuir altura del panel" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Disminuir anchura del panel" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Aumentar anchura del panel" })
