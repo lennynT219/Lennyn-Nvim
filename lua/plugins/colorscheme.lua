@@ -37,12 +37,14 @@ return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
   },
+  { "datsfilipe/gruvbox.nvim" },
+  { "nyoom-engineering/oxocarbon.nvim" },
   {
     -- LazyVim configuration
     "LazyVim/LazyVim",
     opts = {
       -- Set the default color scheme
-      colorscheme = "tokyonight-night",
+      colorscheme = "oxocarbon",
     },
   },
 }

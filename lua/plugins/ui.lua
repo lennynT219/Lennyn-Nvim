@@ -38,7 +38,7 @@ return {
     requires = { "nvim-tree/nvim-web-devicons", opt = true }, -- Optional dependency for icons
     opts = {
       options = {
-        theme = "tokyonight-night", -- Set the theme to tokyonight-night
+        theme = "oxocarbon", -- Set the theme to oxocarbon
         icons_enabled = true, -- Enable icons in the statusline
       },
       sections = {
