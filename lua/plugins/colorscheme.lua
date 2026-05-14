@@ -44,7 +44,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- Set the default color scheme
-      colorscheme = "oxocarbon",
+      colorscheme = "onedark_vivid",
     },
   },
 }

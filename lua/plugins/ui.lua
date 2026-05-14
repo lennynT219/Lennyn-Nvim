@@ -38,7 +38,7 @@ return {
     requires = { "nvim-tree/nvim-web-devicons", opt = true }, -- Optional dependency for icons
     opts = {
       options = {
-        theme = "oxocarbon", -- Set the theme to oxocarbon
+        theme = "onedark_vivid", -- Set the theme to onedarkpro-vivid
         icons_enabled = true, -- Enable icons in the statusline
       },
       sections = {
